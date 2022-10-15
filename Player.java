@@ -13,8 +13,12 @@ public class Player
         ign = playerign;
         age = playerAge;
         kills = playerKills;
-
+        team.addPlayer(this);
         
+    }
+    public Player()
+    {
+        name = "filler";
     }
     public void addKills(int playerKills)
     {
@@ -24,6 +28,10 @@ public class Player
     {
         //make automatic if possible
         age = playerAge;
+    }
+    public int getKills()
+    {
+        return kills;
     }
     public String getPlayerign()
     {

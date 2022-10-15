@@ -1,38 +1,47 @@
 public class tournement
 {
-    int prizepool;
-    String name;
-    Player[] playerList;
-    int amount;
+    private int prizepool;
+    private String name;
+    private Player playerList[];
+    private int amount;
+    private Player extra;
+    private int count = 0;
+    public static int killpoints;
 
-
-    public tournement(int prize, String tName, int playerAmount)
+    public tournement(int prize, String tName, int playerAmount, Player extraPlayer, int kp)
     {
         prizepool = prize;
         name = tName;
         playerList = new Player[playerAmount];
         amount = playerAmount;
+        extra = extraPlayer;
+        playerList[0] = extra;
+        killpoints = kp;
     }
+    
     public void addPlayer(Player player)
     {
         
-        int count = -1;
+        
         count += 1; 
-        playerList[count] = player;
+        playerList[count-1] = player;
     }
     public void printPlayerList()
     {
-        
-        for(int i = 0; i<=playerList.length; i++)
+        System.out.print("Players:");
+        for(int i = 0; i<count; i++)
         {
-            System.out.println(i);
-            System.out.print(playerList[i].getPlayerign());
+            if(i<count-1)
+            {
+                System.out.print(i+1 +")"+playerList[i].getPlayerign() + ", ");
+            }
+            else
+            {
+                System.out.print(i+1 +")"+playerList[i].getPlayerign());
+            }
         }
-        
+        System.out.println();
     }
-    public void test()
-    {
-        System.out.println(playerList[0].getPlayerign());
-    }
+
 
 }
